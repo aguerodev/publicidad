@@ -94,6 +94,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<script>
+  window.onload = function() {
+    // La URL de donde quieres obtener el texto
+    var url = 'https://raw.githubusercontent.com/aguerodev/publicidad/main/anuncio.txt';
+    
+    // Función para realizar la solicitud AJAX
+    var httpRequest = new XMLHttpRequest();
+    
+    httpRequest.onreadystatechange = function() {
+      // Verificar si la solicitud se completó con éxito
+      if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) {
+          // Si fue exitosa, actualiza el contenido del div
+          document.getElementById('banner').innerText = httpRequest.responseText;
+        } else {
+          console.log('Hubo un problema con la solicitud.');
+        }
+      }
+    };
+    
+    httpRequest.open('GET', url);
+    httpRequest.send();
+  }
+</script>
+<div id="banner">
+
+</div>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
 <p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>

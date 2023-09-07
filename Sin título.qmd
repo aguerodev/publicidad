@@ -3,6 +3,37 @@ title: "prueba"
 format: html
 ---
 
+
+
+
+<script>
+  window.onload = function() {
+    // La URL de donde quieres obtener el texto
+    var url = 'https://raw.githubusercontent.com/aguerodev/publicidad/main/anuncio.txt';
+    
+    // Función para realizar la solicitud AJAX
+    var httpRequest = new XMLHttpRequest();
+    
+    httpRequest.onreadystatechange = function() {
+      // Verificar si la solicitud se completó con éxito
+      if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) {
+          // Si fue exitosa, actualiza el contenido del div
+          document.getElementById('banner').innerText = httpRequest.responseText;
+        } else {
+          console.log('Hubo un problema con la solicitud.');
+        }
+      }
+    };
+    
+    httpRequest.open('GET', url);
+    httpRequest.send();
+  }
+</script>
+
+<div id="banner"></div>
+
+
 ## Quarto
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
