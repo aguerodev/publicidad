@@ -3,9 +3,6 @@ title: "prueba"
 format: html
 ---
 
-
-
-
 <script>
   window.onload = function() {
     // La URL de donde quieres obtener el texto
