@@ -98,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   window.onload = function() {
     // La URL de donde quieres obtener el texto
     var url = 'https://raw.githubusercontent.com/aguerodev/publicidad/main/anuncio.txt';
-    
+    url += '?t=' + new Date().getTime();
     // Función para realizar la solicitud AJAX
     var httpRequest = new XMLHttpRequest();
     
